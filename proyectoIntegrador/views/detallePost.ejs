@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The UdesSA Network</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+    <%- include('./partials/header') %> 
+
+    <main>
+        <div class="post-detail container">
+            <section class="center main-content post">
+                <div class="info-usuario">
+                    <img  class = "profile"src="<%= posteo.imagenUrlAutor %> " alt="">
+                    <p><a href="detalleUsuario.html"><%= posteo.usuarioAutor %> </a></p>
+                </div>
+                <img class="photo" src="<%= posteo.imagenUrl %> " alt="">
+            </section>
+            <section class="right">
+                <h4>Comentarios</h4>
+                <section class="comments">
+                    <form action="" class="comment-form">
+                        <input type="text" class="input" placeholder="Agregar comentario">
+                        <button type="submit">Comentar</button>
+                    </form>
+                    <div>
+                        <% for( let i = 0; i < posteo.comentarios.length; i++ ) { %>
+                            <article class="comment">
+                                <img src="<%= posteo.comentarios[i].imagenUrl %> " alt="">
+                                <section class="content">
+                                    <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].idUsuario %> "><%= posteo.comentarios[i].usuarioAutor %> </a>
+                                    <span class="text"><%= posteo.comentarios[i].texto %> </span>
+                                </section>
+                            </article>
+                        <% } %>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %> 
+
+
+</body>
+
+</html>
