@@ -22,6 +22,8 @@ let data = {
         {
             id: 1,
             usuarioAutor: "pedro.sampayo",
+            idAutor: 1,
+            nombre: 'gato',
             imagenUrlAutor: "https://i.pinimg.com/280x280_RS/e8/10/cd/e810cdef541e690e2c9d8b6361890050.jpg",
             imagenUrl: "https://dspncdn.com/a1/media/692x/9d/c9/47/9dc947f0686a3a67cac7a748ea2c19d0.jpg",
             comentarios:[{
@@ -50,8 +52,10 @@ let data = {
         {
             id: 2,
             usuarioAutor: "guillermo.tufro",
+            nombre: 'chancho',
+            idAutor: 2,
             imagenUrlAutor: "https://i.pinimg.com/280x280_RS/e8/10/cd/e810cdef541e690e2c9d8b6361890050.jpg",
-            imagenUrl: "https://dspncdn.com/a1/media/692x/9d/c9/47/9dc947f0686a3a67cac7a748ea2c19d0.jpg",
+            imagenUrl: "https://floreriatokio.com.ar/wp/wp-content/uploads/2020/11/IMG_20201110_165436081_copy_800x1000-1-500x600.jpg",
             comentarios:[{
                 idComentario: 6,
                 idUsuario : 1,
