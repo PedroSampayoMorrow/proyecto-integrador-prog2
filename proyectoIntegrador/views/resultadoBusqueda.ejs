@@ -20,6 +20,7 @@
 
         <% if (datos.length >= 1 ) { %>
             <% for( let i = 0; i < datos.length; i++ ) { %>
+                
                 <article class="post">
                     <div class="info-usuario ">
                         <img class = "imgComentario" src=<%= datos[i].imagenUrlAutor %> alt="">
@@ -43,12 +44,13 @@
                     <div class="post-comentarios">
                         <h4>Comentarios</h4>
                         <ul>
-                            <% for( let i2 = 0; i2 < datos[i].comentarios.length; i2++ ) { %>
+                            <% for( let i3 = 0; i3 < comentarios.length; i3++ ) { %>
                                 <li>
-                                    <a href="/usuario/detalle/id/<%= datos[i].comentarios[i2].idUsuario %>"><%= datos[i].comentarios[i2].usuarioAutor %></a>
-                                    <span><%= datos[i].comentarios[i2].texto %></span>
+                                    <a href="/usuario/detalle/id/<%= comentarios[i3].idUsuario %>"><%= comentarios[i3].usuarioAutor %></a>
+                                    <span><%= comentarios[i3].texto %></span>
                                 </li>
                             <% } %>
+                            
                             <a href="/posteo/detalle/id/<%= datos[i].id%>">Ver más...</a>
                         </ul>
                     </div>

@@ -32,12 +32,12 @@
                         <button type="submit">Comentar</button>
                     </form>
                     <div>
-                        <% for( let i = 0; i < posteo.comentarios.length; i++ ) { %>
+                        <% for( let i = 0; i < comentarios.length; i++ ) { %>
                             <article class="comment">
-                                <img src="<%= posteo.comentarios[i].imagenUrl %> " class = "imgComentario"alt="">
+                                <img src="<%= comentarios[i].imagenUrl %> " class = "imgComentario"alt="">
                                 <section class="content">
-                                    <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].idUsuario %> "><%= posteo.comentarios[i].usuarioAutor %> </a>
-                                    <span class="text"><%= posteo.comentarios[i].texto %> </span>
+                                    <a class="user" href="/usuario/detalle/id/<%= comentarios[i].idUsuario %> "><%= comentarios[i].usuarioAutor %> </a>
+                                    <span class="text"><%= comentarios[i].texto %> </span>
                                 </section>
                             </article>
                         <% } %>

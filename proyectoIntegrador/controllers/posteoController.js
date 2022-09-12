@@ -10,7 +10,14 @@ let posteoController = {
                resultadoPosteo.push(posteos[i])
            }
         }
-        return res.render('detallePost', {posteo : resultadoPosteo[0]})
+        comentariosPosteo = []
+        for (let i = 0; i < data.comentarios.length; i++) {
+           if (idBuscado == data.comentarios[i].idPosteo) {
+               comentariosPosteo.push(data.comentarios[i])
+           }
+            
+        }
+        return res.render('detallePost', {posteo : resultadoPosteo[0], comentarios : comentariosPosteo})
     } ,
     crear : function (req,res) {
         return res.render('agregarPost')
