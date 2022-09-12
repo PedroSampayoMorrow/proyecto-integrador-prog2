@@ -6,7 +6,7 @@ let data = {
         cantidadPosteos: 30,
         cantidadSeguidores: 100,
         cantidadSeguidos: 600,
-        idPosteos: []
+        
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ let data = {
         cantidadPosteos: 310,
         cantidadSeguidores: 1300,
         cantidadSeguidos: 6500,
-        idPosteos: []
+      
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ let data = {
         cantidadPosteos: 30,
         cantidadSeguidores: 100,
         cantidadSeguidos: 500,
-        idPosteos: []
+
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ let data = {
         cantidadPosteos: 230,
         cantidadSeguidores: 515,
         cantidadSeguidos: 124,
-        idPosteos: []
+    
     },
     {
         id: 5,
@@ -42,11 +42,11 @@ let data = {
         cantidadPosteos: 230,
         cantidadSeguidores: 54115,
         cantidadSeguidos: 1124,
-        idPosteos: []
+    
     }
     ],
     comentarios: [{
-        idComentario: 1,
+        id: 1,
         usuarioAutor: "guillermo.tufro",
         idPosteo: 1,
         idUsuario: 2,
@@ -54,7 +54,7 @@ let data = {
         texto: "Increible imagen"
     },
     {
-        idComentario: 2,
+        id: 2,
         usuarioAutor: "guillermo.tufro",
         idPosteo: 2,
         idUsuario: 2,
@@ -62,56 +62,56 @@ let data = {
         texto: "Wow!"
     },
     {
-        idComentario: 3,
+        id: 3,
         usuarioAutor: "pedro.sampayo",
         idPosteo: 3,
         idUsuario: 1,
         imagenUrl: "https://i.pinimg.com/280x280_RS/e8/10/cd/e810cdef541e690e2c9d8b6361890050.jpg",
         texto: "lol"
     }, {
-        idComentario: 4,
+        id: 4,
         idUsuario: 3,
         idPosteo: 4,
         usuarioAutor: "felix.duhalde",
         imagenUrl: "https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",
         texto: "Fuaaaa"
     }, {
-        idComentario: 5,
+        id: 5,
         idUsuario: 3,
         idPosteo: 5,
         usuarioAutor: "felix.duhalde",
         imagenUrl: "https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",
         texto: "C:"
     }, {
-        idComentario: 6,
+        id: 6,
         idUsuario: 3,
         idPosteo: 2,
         usuarioAutor: "felix.duhalde",
         imagenUrl: "https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",
         texto: "Mira eso!"
     }, {
-        idComentario: 7,
+        id: 7,
         idUsuario: 3,
         idPosteo: 1,
         usuarioAutor: "felix.duhalde",
         imagenUrl: "https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",
         texto: "No me gusto tanto"
     }, {
-        idComentario: 8,
+        id: 8,
         idUsuario: 3,
         idPosteo: 1,
         usuarioAutor: "felix.duhalde",
         imagenUrl: "https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",
         texto: "Re lindo"
     }, {
-        idComentario: 9,
+        id: 9,
         idUsuario: 3,
         idPosteo: 5,
         usuarioAutor: "felix.duhalde",
         imagenUrl: "https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",
         texto: "Alta imagen"
     }, {
-        idComentario: 10,
+        id: 10,
         idUsuario: 3,
         idPosteo: 10,
         usuarioAutor: "felix.duhalde",
