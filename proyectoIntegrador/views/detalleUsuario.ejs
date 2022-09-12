@@ -30,31 +30,13 @@
                 </div>
             </section>
             <section class="bottom">
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
+                <% for( let i = 0; i < posteosUsuario.length; i++ ) { %>
+                    <article class="post">
+                        <a href="/posteo/detalle/id/<%= posteosUsuario[i].id %> ">
+                            <img src="<%= posteosUsuario[i].imagenUrl %>" alt="">
+                        </a>
+                    </article>
+                <% } %>
             </section>
         </div>
     </main>

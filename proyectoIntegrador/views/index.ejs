@@ -16,146 +16,42 @@
     <%- include('./partials/header') %> 
     <main>
         <section class="center main-content">
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
+            <% for( let i = 0; i < datos.length; i++ ) { %>
+                <article class="post">
+                    <div class="info-usuario ">
+                        <img src=<%= datos[i].imagenUrlAutor %> alt="">
+                        <h4>
+                            <a href="/usuario/detalle/id/<%= datos[i].idAutor %> "> <%= datos[i].usuarioAutor %> </a>
+                        </h4>
+                    </div>
+                    <div class="post-body">
+                        <a href="/posteo/detalle/id/<%= datos[i].id%>">
+                            <img src="<%= datos[i].imagenUrl %> " alt="">
+                        </a>
+                    </div>
+                    <ul class="post-reacciones">
                         <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
+                            <i class="fa-regular fa-heart"></i>
                         </li>
                         <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
+                            <i class="fa-regular fa-comment"></i>
                         </li>
-                        <a href="detallePost.html">Ver más...</a>
                     </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="detallePost.html">Ver más...</a>
-                    </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="detallePost.html">Ver más...</a>
-                    </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="detalleUsuario.html">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="detallePost.html">Ver más...</a>
-                    </ul>
-                </div>
-            </article>
+                    <div class="post-comentarios">
+                        <h4>Comentarios</h4>
+                        <ul>
+                            <% for( let i2 = 0; i2 < datos[i].comentarios.length; i2++ ) { %>
+                                <li>
+                                    <a href="/usuario/detalle/id/<%= datos[i].comentarios[i2].idUsuario %>"><%= datos[i].comentarios[i2].usuarioAutor %></a>
+                                    <span><%= datos[i].comentarios[i2].texto %></span>
+                                </li>
+                            <% } %>
+                            <a href="/posteo/detalle/id/<%= datos[i].id%>">Ver más...</a>
+                        </ul>
+                    </div>
+                </article>
+            <% } %>
+            
         </section>    
     </main>
 
