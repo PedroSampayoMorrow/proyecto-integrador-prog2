@@ -301,3 +301,23 @@ main {
 .imgComentario{
     max-width: 100px;
 }
+.loginForm{
+    display: flex;
+    flex-direction: column;
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+}
+.campo{
+    margin-top: 5px;
+}
+.posteosMiPerfil {
+    display: flex;
+    justify-content: space-around;
+    width: 60vw;
+}
+.tamanoImg {
+    width: 500px;
+    height: 600px;
+}

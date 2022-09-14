@@ -18,58 +18,25 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="https://via.placeholder.com/100x100" alt="">
+                <img class="profile" src="<%= usuario.imagenUrl %>" alt="">
                 <div class="info-usuario">
-                    <p>Nombre de usuario</p> 
+                    <p><%= usuario.username %> </p> 
                     <a class="follow" href="/usuario/miperfil/editar"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
-                        <li>100 post</li>
-                        <li>200 seguidores</li>
-                        <li>300 seguidos</li>
+                        <li><%= usuario.cantidadPosteos %> post</li>
+                        <li><%= usuario.cantidadSeguidores %> seguidores</li>
+                        <li><%= usuario.cantidadSeguidos %> seguidos</li>
                     </ul>
                 </div>
             </section>
-            <section class="bottom">
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
+            <section class="posteosMiPerfil">
+                <% for( let i = 0; i < posteosUsuario.length; i++ ) { %>
+                    <article class="post">
+                        <a href="/posteo/detalle/id/<%= posteosUsuario[i].id %> ">
+                            <img src="<%= posteosUsuario[i].imagenUrl %>" alt="">
+                        </a>
+                    </article>
+                <% } %>
             </section>
         </div>
     </main>
