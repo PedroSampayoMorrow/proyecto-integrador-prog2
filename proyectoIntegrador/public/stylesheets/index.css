@@ -33,7 +33,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     padding: 10px 10px;
@@ -47,7 +47,7 @@ header {
     background-color: #EBEDF0;
     padding: 10px;
     border-radius: 10px;
-    width: 300px;
+    width: 350px;
 }
 .search input {
     border: none;
@@ -320,4 +320,13 @@ main {
 .tamanoImg {
     width: 500px;
     height: 600px;
+}
+.navbar-left{
+    width: 27vw;
+}
+.navbar-mid{
+width: 30vw;
+}
+.navbar-center{
+    width: 30vw;
 }
