@@ -35,7 +35,7 @@ header {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
+    background-color: #968686;
     padding: 10px 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -76,7 +76,7 @@ header {
 
 /* Main */
 main {
-    background-color: #fafafa;
+    background-color: #cebfbf;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -93,7 +93,7 @@ main {
 .post{
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 0;
     color: #777;
     margin-bottom: 20px;
 }
@@ -103,7 +103,8 @@ main {
 .info-usuario,
 .post-reacciones,
 .post-comentarios {
-    padding: 10px 15px
+    padding: 10px 15px;
+    background-color: #bfccce;
 }
 .info-usuario {
     display: flex;
@@ -111,6 +112,8 @@ main {
     flex-direction: row;
     justify-content:flex-start;
     align-items: center;
+    background-color: #bfccce;
+    border-radius: 0;
 }
 .info-usuario img {
     margin-right: 10px;
@@ -123,6 +126,7 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    background-color: #d5e3e5;
 }
 .post-reacciones li{
     margin-right: 10px;
@@ -154,7 +158,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
+    background: #968686;
     border-top: 1px solid #ddd;
     padding: 20px 10px;
 }
@@ -246,6 +250,7 @@ main {
 }
 .user-detail .info-usuario{
     justify-content: space-between;
+    border-radius: 10px;
 }
 .user-detail .bottom{
     display: flex;
