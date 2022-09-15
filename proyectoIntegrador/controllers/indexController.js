@@ -11,7 +11,7 @@ let indexController = {
         let resultadoPosteo = []
         let comentariosPosteo = []
             for (let i = 0; i < data.posteos.length; i++) {
-               if (buscado.toLowerCase() == data.posteos[i].nombre) {
+               if (buscado.toLowerCase() == data.posteos[i].nombre.toLowerCase()) {
                    resultadoPosteo.push(data.posteos[i])
                    let idDelPosteoEncontrado = data.posteos[i].id
                    for (let i2 = 0; i2 < data.comentarios.length; i2++) {
