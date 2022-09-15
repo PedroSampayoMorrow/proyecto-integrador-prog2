@@ -330,3 +330,9 @@ width: 30vw;
 .navbar-center{
     width: 30vw;
 }
+.titulo {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+}

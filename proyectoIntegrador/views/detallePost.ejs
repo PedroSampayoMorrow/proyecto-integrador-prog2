@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head') %> 
+<%- include('./partials/head') %>
 
-<body>
-    <%- include('./partials/header') %> 
+    <body>
+        <%- include('./partials/header') %>
 
-    <main>
-        <div class="post-detail container">
-            <section class="center main-content post">
-                <div class="info-usuario">
-                    <img  class = "profile"src="<%= posteo.imagenUrlAutor %> " alt="">
-                    <p><a href="/usuario/detalle/id/<%= posteo.idAutor %> "><%= posteo.usuarioAutor %> </a></p>
+            <main>
+                <div class="post-detail container">
+                    <section class="center main-content post">
+                        <div class="info-usuario">
+                            <img class="profile" src="<%= posteo.imagenUrlAutor %> " alt="">
+                            <p><a href="/usuario/detalle/id/<%= posteo.idAutor %> ">
+                                    <%= posteo.usuarioAutor %>
+                                </a></p>
+                        </div>
+                        <img class="photo" src="<%= posteo.imagenUrl %> " alt="">
+                        <div class="post-comentarios">
+                            <h4 class="post-comentarios">Descripcion</h4>
+                            <p class="titulo">
+                                <%= posteo.descripcion %>
+                            </p>
+                        </div>
+
+                    </section>
+                    <section class="right">
+                        <h4>Comentarios</h4>
+                        <section class="comments">
+                            <form action="" class="comment-form">
+                                <input type="text" class="input" placeholder="Agregar comentario">
+                                <button type="submit">Comentar</button>
+                            </form>
+                            <div>
+                                <% for( let i=0; i < comentarios.length; i++ ) { %>
+                                    <article class="comment">
+                                        <img src="<%= comentarios[i].imagenUrl %> " class="imgComentario" alt="">
+                                        <section class="content">
+                                            <a class="user" href="/usuario/detalle/id/<%= comentarios[i].idUsuario %> ">
+                                                <%= comentarios[i].usuarioAutor %>
+                                            </a>
+                                            <span class="text">
+                                                <%= comentarios[i].texto %>
+                                            </span>
+                                        </section>
+                                    </article>
+                                    <% } %>
+                            </div>
+                        </section>
+                    </section>
                 </div>
-                <img class="photo" src="<%= posteo.imagenUrl %> " alt="">
-            </section>
-            <section class="right">
-                <h4>Comentarios</h4>
-                <section class="comments">
-                    <form action="" class="comment-form">
-                        <input type="text" class="input" placeholder="Agregar comentario">
-                        <button type="submit">Comentar</button>
-                    </form>
-                    <div>
-                        <% for( let i = 0; i < comentarios.length; i++ ) { %>
-                            <article class="comment">
-                                <img src="<%= comentarios[i].imagenUrl %> " class = "imgComentario"alt="">
-                                <section class="content">
-                                    <a class="user" href="/usuario/detalle/id/<%= comentarios[i].idUsuario %> "><%= comentarios[i].usuarioAutor %> </a>
-                                    <span class="text"><%= comentarios[i].texto %> </span>
-                                </section>
-                            </article>
-                        <% } %>
-                    </div>
-                </section>
-            </section>
-        </div>
-    </main>
+            </main>
 
-    <%- include('./partials/footer') %> 
+            <%- include('./partials/footer') %>
 
 
-</body>
+    </body>
 
 </html>

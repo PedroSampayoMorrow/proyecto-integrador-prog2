@@ -2,7 +2,7 @@
 <html lang="en">
 
     <%- include('./partials/head') %> 
-    
+
 <body>
     <%- include('./partials/header') %> 
     <main>
@@ -28,6 +28,10 @@
                             <i class="fa-regular fa-comment"></i>
                         </li>
                     </ul>
+                    <div class="post-comentarios">
+                    <h4 >Descripcion</h4>
+                    <p ><%= datos[i].descripcion %> </p>
+                </div>
                     <div class="post-comentarios">
                         <h4>Comentarios</h4>
                         <ul>
