@@ -35,13 +35,14 @@ header {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: #968686;
+    background-color: #5a491d;
     padding: 10px 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #4f3a1c;
 }
 
 .logo{
     font-size: 18px;
+    
 }
 .search {
     background-color: #EBEDF0;
@@ -76,7 +77,7 @@ header {
 
 /* Main */
 main {
-    background-color: #cebfbf;
+    background-color: #a28c7c;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -104,7 +105,7 @@ main {
 .post-reacciones,
 .post-comentarios {
     padding: 10px 15px;
-    background-color: #bfccce;
+    background-color: #e4d2c5;
 }
 .info-usuario {
     display: flex;
@@ -112,7 +113,7 @@ main {
     flex-direction: row;
     justify-content:flex-start;
     align-items: center;
-    background-color: #bfccce;
+    background-color: #e4d2c5;
     border-radius: 0;
 }
 .info-usuario img {
@@ -126,7 +127,7 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #d5e3e5;
+    background-color: #e4d2c5;
 }
 .post-reacciones li{
     margin-right: 10px;
@@ -138,11 +139,26 @@ main {
 .post-comentarios li a {
     margin-right: 10px;
     color: #000;
+    font-weight: bold;
 }
 .post-comentarios h4 {
     margin: 0 0 10px 0;
+    color: #5f523f;
+    font-weight: lighter;
 }
-
+.post-comentarios p {
+    margin: 0 0 10px 0;
+    color: #000;
+    font-weight: lighter;
+}
+.userComents{
+    margin: 0 0 10px 0;
+    color: #000;
+    font-weight: lighter;
+}
+.titulo{
+    color: #000;
+}
 /* Footer  */
 .main-footer,
 .social,
@@ -152,14 +168,15 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    color: #000;
 }
 .main-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #968686;
-    border-top: 1px solid #ddd;
+    background: #5a491d;
+    border-top: 1px solid #4f3a1c;
     padding: 20px 10px;
 }
 .social li {
@@ -207,7 +224,7 @@ main {
 .comment .text {
     font-size: 12px;
     margin-top: 4px;
-    color: #777;
+    color: #000;
 }
 .comment .content {
     line-height: 1;
