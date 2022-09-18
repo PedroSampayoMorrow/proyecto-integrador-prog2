@@ -2,6 +2,8 @@ let data = {
     usuarios: [{
         id: 1,
         username: "pedro.sampayo",
+        nombre:"Pedro",
+        apeliido:"Sampayo",
         imagenUrl: "https://i.pinimg.com/280x280_RS/e8/10/cd/e810cdef541e690e2c9d8b6361890050.jpg",
         cantidadPosteos: 30,
         cantidadSeguidores: 100,
