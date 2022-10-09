@@ -1,23 +1,19 @@
 let data = require('../db/data')
-
+let db = require('../database/models')
+let usuario = db.Usuario;
+let posteo = db.Posteo;
 let usuariosController = {
     buscarPorId: function (req, res) {
         let idBuscado = req.params.id;
-        let resultadoUsuario = [];
-        for (let i = 0; i < data.usuarios.length; i++) {
-            if (idBuscado == data.usuarios[i].id) {
-                resultadoUsuario.push(data.usuarios[i])
-            }
-        };
-
-        let posteosUsuario = [];
-        for (let i = 0; i < data.posteos.length; i++) {
-            if (idBuscado == data.posteos[i].idAutor) {
-                posteosUsuario.push(data.posteos[i])
-            }
-
-        };
-        return res.render('detalleUsuario', { usuario: resultadoUsuario[0], posteosUsuario: posteosUsuario } );
+        let criterios = { where: [{ id_usuario: idBuscado }] }
+        let buscarUsuario = usuario.findByPk(idBuscado)
+        let buscarPosteos = posteo.findAll(criterios);
+        Promise.all([buscarUsuario, buscarPosteos])
+            .then(function ([resUsuario, resPosteos]) {
+                return res.render('detalleUsuario', { usuario: resUsuario, posteosUsuario: resPosteos })
+            }).catch(function (error) {
+                return res.send(error)
+            })
     },
     registrar: function (req, res) {
         return res.render('registracion')
@@ -26,7 +22,7 @@ let usuariosController = {
         return res.render('login')
     },
     miPerfil: function (req, res) {
-        let indiceRandom = Math.round(Math.random()*4)
+        let indiceRandom = Math.round(Math.random() * 4)
 
         let resultadoUsuario = data.usuarios[indiceRandom]
         let resultadoUsuarioId = data.usuarios[indiceRandom].id

@@ -6,37 +6,38 @@ CREATE TABLE usuarios(
 id INT unsigned primary key auto_increment,
 nombre VARCHAR(50) NOT NULL,
 apellido VARCHAR(50) NOT NULL,
-email VARCHAR(50) NOT NULL,
+email VARCHAR(100) NOT NULL,
 usuario VARCHAR(50) NOT NULL,
-contrasenia VARCHAR(50) DEFAULT 1234,
+contrasenia VARCHAR(500) DEFAULT 1234,
 fecha_nacimiento DATE NOT NULL,
 numero_documento INT unsigned NOT NULL,
 foto VARCHAR(300) NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE posteos(
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(50) NOT NULL,
 descripcion VARCHAR(150) NOT NULL,
-imagenUrl VARCHAR(300) NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-idUsuario INT unsigned,
-FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
+imagen_url VARCHAR(300) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+id_usuario INT unsigned,
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
 CREATE TABLE comentarios(
-idComentario INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-idUsuario INT unsigned,
-idPosteo INT unsigned,
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+id_usuario INT unsigned,
+id_posteo INT unsigned,
 texto VARCHAR(150) NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-FOREIGN KEY (idUsuario) REFERENCES usuarios(id),
-FOREIGN KEY (idPosteo) REFERENCES posteos(id)
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+FOREIGN KEY (id_posteo) REFERENCES posteos(id)
 );
+
 
 INSERT INTO usuarios VALUES (DEFAULT,"Pedro","Sampayo","pedro.sampayo@gmail.com","pedro.sampayo",DEFAULT,"2001/07/12",43504924,"https://i.pinimg.com/280x280_RS/e8/10/cd/e810cdef541e690e2c9d8b6361890050.jpg",DEFAULT,DEFAULT);
 INSERT INTO usuarios VALUES (DEFAULT,"Guillermo","Tufro","guille.tufro@gmail.com","guillermo.tufro",DEFAULT,"2001/09/12",43504923,"https://media.tycsports.com/files/2022/06/14/440393/las-20-mejores-fotos-de-perfil-para-tu-cuenta-de-free-fire_w416.webp",DEFAULT,DEFAULT);

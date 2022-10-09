@@ -9,14 +9,14 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="<%= usuario.imagenUrl %>" alt="">
+                <img class="profile" src="<%= usuario.foto %>" alt="">
                 <div class="info-usuario">
-                    <p><%= usuario.username %> </p> 
+                    <p><%= usuario.usuario %> </p> 
                     <a class="follow" href="">seguir</a>
                     <ul class="meta">
                         <li><%= posteosUsuario.length %> post</li>
-                        <li><%= usuario.cantidadSeguidores %> seguidores</li>
-                        <li><%= usuario.cantidadSeguidos %> seguidos</li>
+                        <li><%= 5 %> seguidores</li>
+                        <li><%= 5 %> seguidos</li>
                     </ul>
                 </div>
             </section>
@@ -24,7 +24,7 @@
                 <% for( let i = 0; i < posteosUsuario.length; i++ ) { %>
                     <article class="post">
                         <a href="/posteo/detalle/id/<%= posteosUsuario[i].id %> ">
-                            <img src="<%= posteosUsuario[i].imagenUrl %>" alt="">
+                            <img src="<%= posteosUsuario[i].imagen_url %>" alt="">
                         </a>
                     </article>
                 <% } %>

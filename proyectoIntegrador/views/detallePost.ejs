@@ -11,11 +11,11 @@
                     <section class="center main-content post">
                         <div class="info-usuario">
                             <img class="profile" src="<%= posteo.imagenUrlAutor %> " alt="">
-                            <p><a href="/usuario/detalle/id/<%= posteo.idAutor %> ">
-                                    <%= posteo.usuarioAutor %>
+                            <p><a href="/usuario/detalle/id/<%= posteo.id_usuario %> ">
+                                    <%= posteo.id_usuario %> (despues ponemos el usuario)
                                 </a></p>
                         </div>
-                        <img class="photo" src="<%= posteo.imagenUrl %> " alt="">
+                        <img class="photo" src="<%= posteo.imagen_url %> " alt="">
                         <div class="post-comentarios">
                             <h4 class="post-comentarios">Descripcion</h4>
                             <p class="titulo">
@@ -34,10 +34,10 @@
                             <div>
                                 <% for( let i=0; i < comentarios.length; i++ ) { %>
                                     <article class="comment">
-                                        <img src="<%= comentarios[i].imagenUrl %> " class="imgComentario" alt="">
+                                        <img src="<%= comentarios[i].imagen_url %> " class="imgComentario" alt="">
                                         <section class="content">
-                                            <a class="user" href="/usuario/detalle/id/<%= comentarios[i].idUsuario %> ">
-                                                <%= comentarios[i].usuarioAutor %>
+                                            <a class="user" href="/usuario/detalle/id/<%= comentarios[i].id_usuario %> ">
+                                                <%= comentarios[i].id_usuario %> (despues ponemos el usuario)
                                             </a>
                                             <span class="text">
                                                 <%= comentarios[i].texto %>
