@@ -10,9 +10,9 @@
                 <div class="post-detail container">
                     <section class="center main-content post">
                         <div class="info-usuario">
-                            <img class="profile" src="<%= posteo.imagenUrlAutor %> " alt="">
+                            <img class="profile" src="<%= posteo.usuario.foto %> " alt="">
                             <p><a href="/usuario/detalle/id/<%= posteo.id_usuario %> ">
-                                    <%= posteo.id_usuario %> (despues ponemos el usuario)
+                                    <%= posteo.usuario.usuario %>
                                 </a></p>
                         </div>
                         <img class="photo" src="<%= posteo.imagen_url %> " alt="">
@@ -31,20 +31,23 @@
                                 <input type="text" class="input" placeholder="Agregar comentario">
                                 <button type="submit">Comentar</button>
                             </form>
+
+                           
                             <div>
-                                <% for( let i=0; i < comentarios.length; i++ ) { %>
+                                <% for( let i=0; i < posteo.comentarios.length; i++ ) { %>
                                     <article class="comment">
-                                        <img src="<%= comentarios[i].imagen_url %> " class="imgComentario" alt="">
+                                        <img src="<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
                                         <section class="content">
-                                            <a class="user" href="/usuario/detalle/id/<%= comentarios[i].id_usuario %> ">
-                                                <%= comentarios[i].id_usuario %> (despues ponemos el usuario)
+                                            <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
+                                                <%= posteo.comentarios[i].usuario.usuario %>
                                             </a>
                                             <span class="text">
-                                                <%= comentarios[i].texto %>
+                                                <%= posteo.comentarios[i].texto %>
                                             </span>
                                         </section>
                                     </article>
-                                    <% } %>
+                                    <% } %> 
+                        
                             </div>
                         </section>
                     </section>

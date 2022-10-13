@@ -1,30 +1,36 @@
-let data = require('../db/data')
 
+let data = require('../db/data')
+let db = require('../database/models');
+const { posteos } = require('../db/data');
+let posteo = db.Posteo;
+let comentario = db.Comentario;
+let usuario = db.Usuario;
+let op = db.Sequelize.Op;
 let indexController = {
     index : function(req, res) {
-
-        res.render('index', {datos : data.posteos, comentarios : data.comentarios});
+        let criterios = {
+            include:[{all:true,nested:true}],
+            limit:10
+        }
+        posteo.findAll(criterios)
+        .then(function (resultado) {
+            return  res.render('index', {datos : resultado});
+        })
+  
       } , 
     search : function (req,res) {
-
         buscado = req.query.buscado;
-        let resultadoPosteo = []
-        let comentariosPosteo = []
-            for (let i = 0; i < data.posteos.length; i++) {
-               if (buscado.toLowerCase() == data.posteos[i].nombre.toLowerCase()) {
-                   resultadoPosteo.push(data.posteos[i])
-                   let idDelPosteoEncontrado = data.posteos[i].id
-                   for (let i2 = 0; i2 < data.comentarios.length; i2++) {
-                       if (data.comentarios[i2].idPosteo == idDelPosteoEncontrado) {
-                          comentariosPosteo.push(data.comentarios[i2])
-                       }
-                       
-                   }
-               }
+            let criterios = {
+                include:[{all:true,nested:true}],
+                where: [{nombre : {[op.like] : "%"+buscado+"%" }}]
+                // NO SE XQ NO BUSCA COSAS PARECIDAS
             }
-
+            posteo.findAll(criterios)
+            .then(function (resultado) {
+                return res.render('resultadoBusqueda', {datos:resultado, buscado:buscado})
+            })
             
-        return res.render('resultadoBusqueda', {datos:resultadoPosteo, buscado:buscado, comentarios : comentariosPosteo})
+        
     }
 }
 

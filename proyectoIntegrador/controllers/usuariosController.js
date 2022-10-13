@@ -5,12 +5,9 @@ let posteo = db.Posteo;
 let usuariosController = {
     buscarPorId: function (req, res) {
         let idBuscado = req.params.id;
-        let criterios = { where: [{ id_usuario: idBuscado }] }
-        let buscarUsuario = usuario.findByPk(idBuscado)
-        let buscarPosteos = posteo.findAll(criterios);
-        Promise.all([buscarUsuario, buscarPosteos])
-            .then(function ([resUsuario, resPosteos]) {
-                return res.render('detalleUsuario', { usuario: resUsuario, posteosUsuario: resPosteos })
+        usuario.findByPk(idBuscado,{include:[{all:true,nested:true}]})
+            .then(function (resUsuario) {
+                return res.render('detalleUsuario', { usuario: resUsuario})
             }).catch(function (error) {
                 return res.send(error)
             })
@@ -22,19 +19,11 @@ let usuariosController = {
         return res.render('login')
     },
     miPerfil: function (req, res) {
-        let indiceRandom = Math.round(Math.random() * 4)
-
-        let resultadoUsuario = data.usuarios[indiceRandom]
-        let resultadoUsuarioId = data.usuarios[indiceRandom].id
-        let posteosUsuario = []
-
-        for (let i = 0; i < data.posteos.length; i++) {
-            if (resultadoUsuarioId == data.posteos[i].idAutor) {
-                posteosUsuario.push(data.posteos[i])
-            }
-        }
-        return res.render('miPerfil', { usuario: resultadoUsuario, posteosUsuario: posteosUsuario })
-    },
+        usuario.findByPk(5,{include:[{all:true,nested:true}]})
+        .then(function (resultadoUsuario) {
+            return res.render('miPerfil', { usuario: resultadoUsuario})
+        })
+        },
     editarMiPerfil: function (req, res) {
         return res.render('editarPerfil')
     }

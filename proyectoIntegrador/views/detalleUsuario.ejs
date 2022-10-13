@@ -14,17 +14,17 @@
                     <p><%= usuario.usuario %> </p> 
                     <a class="follow" href="">seguir</a>
                     <ul class="meta">
-                        <li><%= posteosUsuario.length %> post</li>
+                        <li><%= usuario.posteo.length %> post</li>
                         <li><%= 5 %> seguidores</li>
                         <li><%= 5 %> seguidos</li>
                     </ul>
                 </div>
             </section>
             <section class="posteosMiPerfil">
-                <% for( let i = 0; i < posteosUsuario.length; i++ ) { %>
+                <% for( let i = 0; i < usuario.posteo.length; i++ ) { %>
                     <article class="post">
-                        <a href="/posteo/detalle/id/<%= posteosUsuario[i].id %> ">
-                            <img src="<%= posteosUsuario[i].imagen_url %>" alt="">
+                        <a href="/posteo/detalle/id/<%= usuario.posteo[i].id %> ">
+                            <img src="<%= usuario.posteo[i].imagen_url %>" alt="">
                         </a>
                     </article>
                 <% } %>

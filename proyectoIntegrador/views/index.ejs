@@ -10,14 +10,14 @@
             <% for( let i = 0; i < datos.length; i++ ) { %>
                 <article class="post">
                     <div class="info-usuario ">
-                        <img class = "imgComentario"src=<%= datos[i].imagenUrlAutor %> alt="">
+                        <img class = "imgComentario"src=<%= datos[i].usuario.foto %> alt="">
                         <h4>
-                            <a href="/usuario/detalle/id/<%= datos[i].idAutor %> "> <%= datos[i].usuarioAutor %> </a>
+                            <a href="/usuario/detalle/id/<%= datos[i].id_usuario %> "> <%= datos[i].usuario.usuario %> </a>
                         </h4>
                     </div>
                     <div class="post-body">
                         <a href="/posteo/detalle/id/<%= datos[i].id%>">
-                            <img src="<%= datos[i].imagenUrl %> " alt="">
+                            <img src="<%= datos[i].imagen_url %> " alt="">
                         </a>
                     </div>
                     <ul class="post-reacciones">
@@ -33,15 +33,19 @@
                     <p ><%= datos[i].descripcion %> </p>
                 </div>
                     <div class="post-comentarios">
+
                         <h4>Comentarios</h4>
                         <ul>
-                            <% for( let i3 = 0; i3 < 3; i3++ ) { %>
-                                <li>
-                                    <a href="/usuario/detalle/id/<%= comentarios[i3].idUsuario %>"><%= comentarios[i3].usuarioAutor %></a>
-                                    <span class="userComents"><%= comentarios[i3].texto %></span>
-                                </li>
-                            <% } %>
-                                
+                            <% if (datos[i].comentarios.length>0) { %>
+                                <% for( let j = 0; j < datos[i].comentarios.length; j++ ) { %>
+                                   
+                                        <li>
+                                            <a href="/usuario/detalle/id/<%= datos[i].comentarios[j].id_usuario %>"><%= datos[i].comentarios[j].usuario.usuario %></a>
+                                            <span class="userComents"><%= datos[i].comentarios[j].texto %></span>
+                                        </li>
+                                    <% } %>
+                                <% } %>
+                                    
                             
                             <a href="/posteo/detalle/id/<%= datos[i].id%>">Ver más...</a>
                         </ul>

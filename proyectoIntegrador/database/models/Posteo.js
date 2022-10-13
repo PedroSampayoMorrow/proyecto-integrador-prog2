@@ -35,7 +35,29 @@ module.exports = function (sequelize, dataTypes) {
         timestamps: false,
         underscored :true
     }
-    let Posteos = sequelize.define (alias,cols,config);
+    let Posteo = sequelize.define (alias,cols,config);
+    Posteo.associate = function (models) {
+        Posteo.belongsTo(models.Usuario,{
+            as:"usuario",
+            foreignKey:"id_usuario"
+        })
 
-    return Posteos;
+        Posteo.hasMany(models.Comentario,{
+            as:"comentarios",
+            foreignKey:"id_posteo"
+        })
+    }
+    /*Posteo.associate = function (models) {
+        Posteo.belongsTo(models.Usuario,{
+            as:"usuario",
+            foreignKey:"id_posteo"
+        })
+
+        Posteo.hasMany(models.Comentario,{
+            as:"comentarios",
+            foreignKey:"id_posteo"
+        })
+    }*/
+
+    return Posteo;
 }
