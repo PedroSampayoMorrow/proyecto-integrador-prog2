@@ -26,7 +26,19 @@ let usuariosController = {
         },
     editarMiPerfil: function (req, res) {
         return res.render('editarPerfil')
-    }
+    },
+    editarPerfil : function (req,res) {
+      //    return res.send(req.body)
+        return res.redirect('/usuario/miperfil')
+      },
+    crear : function (req,res) {
+        //return res.send(req.body)
+        return res.redirect('/usuario/login')
+    },
+    loginV : function (req,res) {
+      //  return res.send(req.body)
+        return res.redirect('/')
+    },
 }
 
 module.exports = usuariosController;

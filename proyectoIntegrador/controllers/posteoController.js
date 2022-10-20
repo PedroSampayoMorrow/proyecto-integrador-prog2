@@ -14,7 +14,11 @@ let posteoController = {
     },
     crear: function (req, res) {
         return res.render('agregarPost')
-    }
+    },
+    agregar : function (req, res) {
+       // return res.send(req.body)
+       return res.redirect('/')
+    },
 }
 
 module.exports = posteoController;

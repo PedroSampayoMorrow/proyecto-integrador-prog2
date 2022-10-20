@@ -8,12 +8,15 @@
     <main>
         <section class="centerMain-content">
             <h1>Nuevo Post</h1>
-            <form action="/" method="get" class="loginForm">
+            <form action="/posteo/crear" method="post" class="loginForm">
                 <label  class = "campo" for="text">Titulo</label>
-                <input class = "campo" type="text" name="" id="nombre" placeholder="Ej: Gatos">
+                <input class = "campo" type="text" name="titulo" id="nombre" placeholder="Ej: Gatos">
         
+                <label  class = "campo" for="text">Descripcion</label>
+                <input class = "campo" type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+
                 <label  class = "campo" for="text">URL de la imagen</label>
-                <input class = "campo" type="file" name="" id="imagenUrl" placeholder="URL">
+                <input class = "campo" type="file" name="imagen_Url" id="imagenUrl" placeholder="URL">
         
                 <button  class = "campo" type="submit" class="loginButton">Crear Posteo</button>
         
