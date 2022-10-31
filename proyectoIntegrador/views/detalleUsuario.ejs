@@ -4,19 +4,27 @@
     <%- include('./partials/head') %> 
 
 <body>
+    <% if (locals.user != undefined) { %>
+        <%- include('./partials/headerLog') %> 
+   %> <% } else { %>
     <%- include('./partials/header') %> 
-
+    <% } %>
     <main>
         <div class="user-detail container">
             <section class="top main-content">
                 <img class="profile" src="<%= usuario.foto %>" alt="">
                 <div class="info-usuario">
                     <p><%= usuario.usuario %> </p> 
-                    <a class="follow" href="">seguir</a>
+                    <% if (locals.user != undefined) { %>
+                        <form action="/usuario/seguir" method="post">
+                            <input type="text" value="<%= usuario.id %> " hidden  name="idPerfil">
+                            <button class="follow" type="sublit">seguir </button>
+                        </form>
+                    <% } %>
                     <ul class="meta">
                         <li><%= usuario.posteo.length %> post</li>
-                        <li><%= 5 %> seguidores</li>
-                        <li><%= 5 %> seguidos</li>
+                        <li><%= followers.length %> seguidores</li>
+                        <li><%= usuario.following.length %> seguidos</li>
                     </ul>
                 </div>
             </section>

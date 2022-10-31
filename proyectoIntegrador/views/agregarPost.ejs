@@ -4,7 +4,11 @@
     <%- include('./partials/head') %> 
 
 <body>
+    <% if (locals.user != undefined) { %>
+        <%- include('./partials/headerLog') %> 
+   %> <% } else { %>
     <%- include('./partials/header') %> 
+    <% } %>
     <main>
         <section class="centerMain-content">
             <h1>Nuevo Post</h1>
@@ -16,7 +20,7 @@
                 <input class = "campo" type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
 
                 <label  class = "campo" for="text">URL de la imagen</label>
-                <input class = "campo" type="file" name="imagen_Url" id="imagenUrl" placeholder="URL">
+                <input class = "campo" type="text" name="imagen_url" id="imagenUrl" placeholder="URL">
         
                 <button  class = "campo" type="submit" class="loginButton">Crear Posteo</button>
         

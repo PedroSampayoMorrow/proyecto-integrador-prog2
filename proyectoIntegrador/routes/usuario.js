@@ -14,5 +14,8 @@ router.post('/login', usuariosController.loginV)
 router.get('/miperfil', usuariosController.miPerfil)
 
 router.get('/miperfil/editar', usuariosController.editarMiPerfil)
+
 router.post('/miperfil/editar', usuariosController.editarPerfil)
+
+router.post('/seguir', usuariosController.seguir)
 module.exports = router;

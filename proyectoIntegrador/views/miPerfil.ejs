@@ -4,7 +4,11 @@
     <%- include('./partials/head') %> 
 
 <body>
+    <% if (locals.user != undefined) { %>
+        <%- include('./partials/headerLog') %> 
+   %> <% } else { %>
     <%- include('./partials/header') %> 
+    <% } %>
 
     <main>
         <div class="user-detail container">
@@ -15,8 +19,8 @@
                     <a class="follow" href="/usuario/miperfil/editar"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
                         <li><%= usuario.posteo.length %> post</li>
-                        <li>5(hc) seguidores</li>
-                        <li>5(hc) seguidos</li>
+                        <li><%= followers.length %> seguidores</li>
+                        <li><%= usuario.following.length %> seguidos</li>
                     </ul>
                 </div>
             </section>

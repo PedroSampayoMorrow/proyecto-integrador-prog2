@@ -1,7 +1,7 @@
 <header class="main-header">
     <nav class="main-nav">
         <div class="navbar-left">
-            <h2 class="logo"><a href="/">MyTrip</a></h2>
+            <h2 class="logoLog"><a href="/">MyTrip</a></h2>
         </div>
         <div class="navbar-center">
             <form action="/search" class="search" method="get">
@@ -11,10 +11,11 @@
         </div>
         <div class="navbar-right">
             <ul class="menu">
-                <li><a href="/usuario/registrar">Registro</a></li>
-                <li><a href="/usuario/login">Login</a></li>
+                <p class="nameUs"> Bienvenido, <%= user.nombre %> </p>
                 <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
-                
+                <li><a href="/posteo/crear"><i class="fa-regular fa-square-plus"></i></a></li>
+                <li><a href="/usuario/miperfil"><i class="fa-regular fa-user"></i></a></li>
+                <li><i class="fa-solid fa-arrow-right-from-bracket"></i></li>
             </ul>
         </div>
     </nav>

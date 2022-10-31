@@ -4,7 +4,11 @@
 <%- include('./partials/head') %>
 
     <body>
-        <%- include('./partials/header') %>
+        <% if (locals.user != undefined) { %>
+            <%- include('./partials/headerLog') %> 
+       %> <% } else { %>
+        <%- include('./partials/header') %> 
+        <% } %>
 
             <main>
                 <div class="post-detail container">
@@ -27,31 +31,64 @@
                     <section class="right">
                         <h4>Comentarios</h4>
                         <section class="comments">
-                            <form action="" class="comment-form">
-                                <input type="text" class="input" placeholder="Agregar comentario">
+                            <form action="/posteo/detalle/comentarios" method = "POST" class="comment-form">
+                                <input type="text" class="input" name = "texto" placeholder="Agregar comentario">
+                                <input type="hidden" value="<%= posteo.id %>" name="id_posteo">
                                 <button type="submit">Comentar</button>
                             </form>
 
-                           
-                            <div>
-                                <% for( let i=0; i < posteo.comentarios.length; i++ ) { %>
-                                    <article class="comment">
-                                        <img src="<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
-                                        <section class="content">
-                                            <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
-                                                <%= posteo.comentarios[i].usuario.usuario %>
-                                            </a>
-                                            <span class="text">
-                                                <%= posteo.comentarios[i].texto %>
-                                            </span>
-                                        </section>
-                                    </article>
-                                    <% } %> 
+                            <div class ="cuerpoComentarios">
+
+                                <% if (posteo.comentarios.length > 0) { %>
+                                    <% if (posteo.comentarios.length>8) { %>
+                                        <% for( let i=0; i < 8; i++ ) { %>
+                                            <article class="comment">
+                                                <img src="<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
+                                                <section class="content">
+                                                    <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
+                                                        <%= posteo.comentarios[i].usuario.usuario %>
+                                                    </a>
+                                                    <span class="text">
+                                                        <%= posteo.comentarios[i].texto %>
+                                                    </span>
+                                                </section>
+                                            </article>
+                                            <% } %> 
+                                     <% } else { %>
+                                        <% for( let i=0; i < posteo.comentarios.length; i++ ) { %>
+                                            <article class="comment">
+                                                <img src="<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
+                                                <section class="content">
+                                                    <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
+                                                        <%= posteo.comentarios[i].usuario.usuario %>
+                                                    </a>
+                                                    <span class="text">
+                                                        <%= posteo.comentarios[i].texto %>
+                                                    </span>
+                                                </section>
+                                            </article>
+                                            <% } %> 
+                                    <% } %>
+
+                                    
+                                <% } else { %>
+                                    <p>Se el primero en comentar!</p>
+                                 <% } %> 
                         
+
                             </div>
                         </section>
                     </section>
+                    
                 </div>
+                <% if (locals.user != undefined && locals.user.id ==posteo.usuario.id) { %>
+                    <div class="post-detail container">
+                        <form action="/posteo/detalle/update/id/<%= posteo.id %>" method = "post" class="comment-form">
+                            <button type="submit" class="btnPosteo">Modificar Posteo</button>
+                        </form>
+                    </div>
+                <% } %>
+                
             </main>
 
             <%- include('./partials/footer') %>
