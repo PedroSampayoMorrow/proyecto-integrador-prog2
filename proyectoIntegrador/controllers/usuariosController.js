@@ -1,4 +1,4 @@
-let data = require('../db/data')
+
 let db = require('../database/models')
 let posteo = db.Posteo;
 
@@ -25,16 +25,24 @@ let usuariosController = {
         return res.render('registracion')
     },
     login: function (req, res) {
-        return res.render('login')
+        if (req.session.user != null) {
+            return res.redirect('/')
+        } else{
+        return res.render('login')}
     },
     miPerfil: function (req, res) {
+
+    if (req.session.user != null) {
         let followers = db.Seguidor.findAll({where:[{id_seguido: req.session.user.id}]})
         let resUsuario = db.Usuario.findByPk(req.session.user.id, { include: [{ all: true, nested: true }] })
-
         Promise.all([followers,resUsuario])
-            .then(function ([resfollowers,resultadoUsuario]) {
-                return res.render('miPerfil', { usuario: resultadoUsuario , followers:resfollowers})
-            })
+        .then(function ([resfollowers,resultadoUsuario]) {
+            return res.render('miPerfil', { usuario: resultadoUsuario , followers:resfollowers})
+        })
+    } else {
+        return res.redirect('/usuario/login')
+    }
+       
     },
     editarMiPerfil: function (req, res) {
         db.Usuario.findByPk(req.session.user.id, { include: [{ all: true, nested: true }] })
@@ -74,7 +82,7 @@ let usuariosController = {
             contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
             fecha_nacimiento: req.body.fecha_nacimiento,
             numero_documento: req.body.numero_documento,
-            foto: req.body.foto,
+            foto: req.file.filename,
         }).then(function (result) {
             return res.redirect('/usuario/login')
         }).catch(function (error) {
@@ -85,13 +93,12 @@ let usuariosController = {
     loginV: function (req, res) {
         db.Usuario.findOne({ where: { email: req.body.email } })
             .then(function (resultados) {
-
                 if (resultados != null) {
                     let booleano = bcrypt.compareSync(req.body.contrasenia, resultados.contrasenia);
                     if (booleano) {
                         req.session.user = resultados.dataValues
                         if (req.body.recordarme != null) {
-                            res.cookie('userId', resultados.dataValues.id, { maxAge: 1000 * 60 * 5 })
+                            res.cookie('userId', resultados.dataValues.id, { maxAge: 1000 * 60 * 10 })
                         }
                         return res.redirect('/')
                     } else {
@@ -118,6 +125,12 @@ let usuariosController = {
         }
        }) 
 
+    },
+    logout: function (req,res) {
+        res.clearCookie('userId')
+        req.session.destroy();
+        console.log(req.session);
+        return res.redirect('/');
     }
 }
 

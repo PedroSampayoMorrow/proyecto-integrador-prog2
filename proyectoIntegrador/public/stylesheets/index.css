@@ -401,3 +401,7 @@ width: 30vw;
 .centerMain-content {
     font-family: 'Ubuntu', sans-serif;
 }
+.margenes{
+    display: flex;
+    width: 500px;
+}

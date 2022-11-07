@@ -12,19 +12,18 @@
     <main>
         <section class="centerMain-content">
             <h1>Nuevo Post</h1>
-            <form action="/posteo/crear" method="post" class="loginForm">
-                <label  class = "campo" for="text">Titulo</label>
-                <input class = "campo" type="text" name="titulo" id="nombre" placeholder="Ej: Gatos">
+            <form action="/posteo/crear" method="POST" class="loginForm" enctype="multipart/form-data">
+            
+                <label class = "campo" for="name">Titulo:</label>
+                <input class = "campo"type="text" name="titulo" id="name" placeholder="Ej: Russia">
         
-                <label  class = "campo" for="text">Descripcion</label>
-                <input class = "campo" type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+                <label class = "campo" for="name">Descripcion:</label>
+                <input class = "campo" type="text" name="descripcion" id="apellido" placeholder="Ej: El mejor lugar del planeta!">
 
-                <label  class = "campo" for="text">URL de la imagen</label>
-                <input class = "campo" type="text" name="imagen_url" id="imagenUrl" placeholder="URL">
+                <label class = "campo" for="email">Imagen</label>
+                <input class = "campo" type="file" name="foto" id="imagenUrl" placeholder="">
         
-                <button  class = "campo" type="submit" class="loginButton">Crear Posteo</button>
-        
-            </form>
+                <button class = "campo" type="submit" class="loginButton">Crear Posteo!</button>
         </section>
     </main>
 

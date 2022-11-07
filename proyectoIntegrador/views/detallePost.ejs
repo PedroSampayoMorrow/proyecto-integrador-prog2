@@ -14,12 +14,12 @@
                 <div class="post-detail container">
                     <section class="center main-content post">
                         <div class="info-usuario">
-                            <img class="profile" src="<%= posteo.usuario.foto %> " alt="">
+                            <img class="profile" src="/images/Usuarios/<%= posteo.usuario.foto %> " alt="">
                             <p><a href="/usuario/detalle/id/<%= posteo.id_usuario %> ">
                                     <%= posteo.usuario.usuario %>
                                 </a></p>
                         </div>
-                        <img class="photo" src="<%= posteo.imagen_url %> " alt="">
+                        <img class="photo" src="/images/Posteos/<%= posteo.imagen_url %> " alt="">
                         <div class="post-comentarios">
                             <h4 class="post-comentarios">Descripcion</h4>
                             <p class="titulo">
@@ -43,7 +43,7 @@
                                     <% if (posteo.comentarios.length>8) { %>
                                         <% for( let i=0; i < 8; i++ ) { %>
                                             <article class="comment">
-                                                <img src="<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
+                                                <img src="/images/Usuarios/<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
                                                 <section class="content">
                                                     <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
                                                         <%= posteo.comentarios[i].usuario.usuario %>
@@ -57,7 +57,7 @@
                                      <% } else { %>
                                         <% for( let i=0; i < posteo.comentarios.length; i++ ) { %>
                                             <article class="comment">
-                                                <img src="<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
+                                                <img src="/images/Usuarios/<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
                                                 <section class="content">
                                                     <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
                                                         <%= posteo.comentarios[i].usuario.usuario %>
@@ -82,11 +82,16 @@
                     
                 </div>
                 <% if (locals.user != undefined && locals.user.id ==posteo.usuario.id) { %>
-                    <div class="post-detail container">
+                    <div class="post-detail container margenes">
                         <form action="/posteo/detalle/update/id/<%= posteo.id %>" method = "post" class="comment-form">
-                            <button type="submit" class="btnPosteo">Modificar Posteo</button>
+                            <button type="submit" class="btnPosteo">Editar Posteo</button>
                         </form>
+                            <form action="/" method = "get" class="comment-form">
+                                <button type="submit" class="btnPosteo">Borrar Posteo</button>
+                            </form>
+
                     </div>
+                    
                 <% } %>
                 
             </main>

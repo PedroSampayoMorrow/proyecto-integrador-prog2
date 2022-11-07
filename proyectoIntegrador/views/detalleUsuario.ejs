@@ -12,7 +12,7 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="<%= usuario.foto %>" alt="">
+                <img class="profile" src="/images/Usuarios/<%= usuario.foto %>" alt="">
                 <div class="info-usuario">
                     <p><%= usuario.usuario %> </p> 
                     <% if (locals.user != undefined) { %>
@@ -32,7 +32,7 @@
                 <% for( let i = 0; i < usuario.posteo.length; i++ ) { %>
                     <article class="post">
                         <a href="/posteo/detalle/id/<%= usuario.posteo[i].id %> ">
-                            <img src="<%= usuario.posteo[i].imagen_url %>" alt="">
+                            <img src="/images/Posteos/<%= usuario.posteo[i].imagen_url %>" alt="">
                         </a>
                     </article>
                 <% } %>

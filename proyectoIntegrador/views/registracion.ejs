@@ -13,7 +13,7 @@
     <main>
         <section class="centerMain-content">
             <h1>Registrate</h1>
-            <form action="/usuario/registrar" method="POST" class="loginForm">
+            <form action="/usuario/registrar" method="POST" class="loginForm" enctype="multipart/form-data">
             
                 <label class = "campo" for="name">Tu nombre:</label>
                 <input class = "campo"type="text" name="nombre" id="name" placeholder="Nombre">
@@ -37,7 +37,7 @@
                 <input class = "campo" type="number" name="numero_documento" id="password" placeholder="DNI">
 
                 <label class = "campo" for="email">Imagen de usuario</label>
-                <input class = "campo" type="text" name="foto" id="imagenUrl" placeholder="">
+                <input class = "campo" type="file" name="foto" id="imagenUrl" placeholder="">
         
                 <button class = "campo" type="submit" class="loginButton">Registrame</button>
         

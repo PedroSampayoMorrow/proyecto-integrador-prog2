@@ -1,5 +1,5 @@
 
-let data = require('../db/data')
+
 let db = require('../database/models');
 const { posteos } = require('../db/data');
 const { where } = require('sequelize');
@@ -12,7 +12,8 @@ let indexController = {
        
             let criterios = {
                 include:[{all:true,nested:true}],
-                limit:20
+                limit:20,
+                order : [['created_at','DESC']]
             }
             posteo.findAll(criterios)
             .then(function (resultado) {
@@ -25,8 +26,9 @@ let indexController = {
         buscado = req.query.buscado;
             let criterios = {
                 include:[{all:true,nested:true}],
-                where: [{nombre : {[op.like] : "%"+buscado+"%" }}]
-                // NO SE XQ NO BUSCA COSAS PARECIDAS
+                where: [{nombre : {[op.like] : "%"+buscado+"%" }}],
+                limit: 10,
+                order: [['created_at','DESC']]
             }
             posteo.findAll(criterios)
             .then(function (resultado) {

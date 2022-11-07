@@ -30,14 +30,14 @@
                 <label class = "campo" for="email">Tu email:</label>
                 <input class = "campo" type="email" name="email" id="email" placeholder="example@email.com"  value="<%= usuario.email %>">
         
-                <label class = "campo" for="email">Nueva:</label>
+                <label class = "campo" for="email">Nueva contraseña:</label>
                 <input class = "campo" type="password" name="contrasenia" id="password" placeholder="Contraseña"  value="">
 
                 <label class = "campo" for="email">DNI:</label>
                 <input class = "campo" type="text" name="numero_documento" id="password" placeholder="Contraseña"  value="<%= usuario.numero_documento %>">
 
                 <label class = "campo" for="email">Imagen de usuario</label>
-                <input class = "campo" type="text" name="foto" id="imagenUrl" placeholder=""  value="<%= usuario.foto %>">
+                <input class = "campo" hidden type="text" name="foto" id="imagenUrl" placeholder=""  value="<%= usuario.foto %>">
                 <input class = "campo" hidden type="text" name="id" id="imagenUrl" placeholder=""  value="<%= usuario.id %>">
                 <button class = "campo" type="submit" class="loginButton">Modificar</button>
         

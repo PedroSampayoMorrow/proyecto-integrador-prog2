@@ -38,24 +38,32 @@ FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
 FOREIGN KEY (id_posteo) REFERENCES posteos(id)
 );
 
+CREATE TABLE seguidos(
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+id_seguidor INT unsigned,
+id_seguido INT unsigned,
+FOREIGN KEY (id_seguidor) REFERENCES usuarios(id),
+FOREIGN KEY (id_seguido) REFERENCES usuarios(id)
+);
 
-INSERT INTO usuarios VALUES (DEFAULT,"Pedro","Sampayo","pedro.sampayo@gmail.com","pedro.sampayo",DEFAULT,"2001/07/12",43504924,"https://i.pinimg.com/280x280_RS/e8/10/cd/e810cdef541e690e2c9d8b6361890050.jpg",DEFAULT,DEFAULT);
-INSERT INTO usuarios VALUES (DEFAULT,"Guillermo","Tufro","guille.tufro@gmail.com","guillermo.tufro",DEFAULT,"2001/09/12",43504923,"https://media.tycsports.com/files/2022/06/14/440393/las-20-mejores-fotos-de-perfil-para-tu-cuenta-de-free-fire_w416.webp",DEFAULT,DEFAULT);
-INSERT INTO usuarios VALUES (DEFAULT,"Felix","Duhalde","felix.duhalde@gmail.com","felix.duhalde",DEFAULT,"2002/10/06",45507921,"https://tecnoandroid.net/wp-content/uploads/2022/02/fotos-boninas-para-perfil-whatsapp-gratis-sin-frase-204.jpg",DEFAULT,DEFAULT);
-INSERT INTO usuarios VALUES (DEFAULT,"Sofia","Cacciato","sofi.cacciato@gmail.com","sofi.cacciato",DEFAULT,"2001/10/15",43204644,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22wkdlbjn0UYcKxRR51Xai6qbDTJoQoRT0g&usqp=CAU",DEFAULT,DEFAULT);
-INSERT INTO usuarios VALUES (DEFAULT,"Messi","Chiquito","messi.chiquito@gmail.com","messi.chiquito",DEFAULT,"1987/10/17",32864924,"https://pbs.twimg.com/profile_images/1398347372946673672/GfHDTRWj_400x400.jpg",DEFAULT,DEFAULT);
+
+INSERT INTO usuarios VALUES (DEFAULT,"Pedro","Sampayo","pedro.sampayo@gmail.com","pedro.sampayo","$2a$10$hLrkp6yL1dwFZ65TT2Fv8.qD8OalS2bXi3PUcpTmIlhUq.akkbw8K","2001/07/12",43504924,"foto - 1667479290452.jpeg",DEFAULT,DEFAULT);
+INSERT INTO usuarios VALUES (DEFAULT,"Guillermo","Tufro","guille.tufro@gmail.com","guillermo.tufro","$2a$10$kg/9e.yabB4H8DYv3hPEnuMgCOHV3jDwwY6u0I4IfwxQAfjRMc3N.","2001/09/12",43504923,"foto - 1667479621209.webp",DEFAULT,DEFAULT);
+INSERT INTO usuarios VALUES (DEFAULT,"Felix","Duhalde","felix.duhalde@gmail.com","felix.duhalde","$2a$10$9mYaYnbOq6dC1kuXB9cwTufxZyLy.P7/mqPEExC1gX6Uog4a/vmHy","2002/10/06",45507921,"foto - 1667479842312.jpeg",DEFAULT,DEFAULT);
+INSERT INTO usuarios VALUES (DEFAULT,"Sofia","Cacciato","sofi.cacciato@gmail.com","sofi.cacciato","$2a$10$uRuMUf/n3zxRdy2zrlQ7q.5RokLPwV8jeo6OlhfE3dJ800SSWYNJ6","2001/10/15",43204644,"foto - 1667480094011.jpeg",DEFAULT,DEFAULT);
+INSERT INTO usuarios VALUES (DEFAULT,"Messi","Chiquito","messi.chiquito@gmail.com","messi.chiquito","$2a$10$Zwro7C2DVScvtTcoZRXDWORG6Q8RSL4maipzsZeAyxrX4gDBuosNa","1987/10/17",32864924,"foto - 1667480220024.jpeg",DEFAULT,DEFAULT);
 
 
-INSERT INTO posteos VALUES (DEFAULT, "Cancun","Las hermosas playas del caribe!","https://mexicoallinclusive.com.mx/wp-content/uploads/2021/04/190777494-500x600.jpg",DEFAULT,DEFAULT,1);
-INSERT INTO posteos VALUES (DEFAULT, "Punta Del Este","Punta del Este!","https://cdn-images.xintelweb.com/upload/bpv7678_2.jpg?56499",DEFAULT,DEFAULT,2);
-INSERT INTO posteos VALUES (DEFAULT, "Buenos Aires","Mi viaje a la hermosa ciudad de Buenos Aires","https://gas-kvas.com/en/uploads/posts/2022-08/thumbs/1661357081_45-gas-kvas-com-p-beautiful-photos-of-buenos-aires-city-from-47.jpg",DEFAULT,DEFAULT,2);
-INSERT INTO posteos VALUES (DEFAULT, "Paris","La Torre!","https://i.pinimg.com/564x/e6/e4/da/e6e4dad839cd8402ee505ff9876db6fa.jpg",DEFAULT,DEFAULT,4);
-INSERT INTO posteos VALUES (DEFAULT, "Amsterdam","Amsterdam es mi lugar preferido en el mundo","https://pbs.twimg.com/media/CDLU_h6WAAEhP5k.jpg",DEFAULT,DEFAULT,4);
-INSERT INTO posteos VALUES (DEFAULT, "Noruega","Hermoso el dia aca en Oslo!","https://salmon.fromnorway.com/globalassets/salmon/images/jpeg-1920x630-footer/1920x630_footer_sa.jpg?preset=width-500,height-600,crop",DEFAULT,DEFAULT,1);
-INSERT INTO posteos VALUES (DEFAULT, "VidCon","Trabajando para mi presentacion en VidCon!","https://besmart.company/wp-content/uploads/2020/10/Webinar-van-de-Ondernemerschap-Academy-scaled-500x600.jpg",DEFAULT,DEFAULT,3);
-INSERT INTO posteos VALUES (DEFAULT, "Safari","Imaginense encontrarte esto afuera de tu casa..., solo en un Safari","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Lion_%28Panthera_leo%29_male_6y.jpg/500px-Lion_%28Panthera_leo%29_male_6y.jpg",DEFAULT,DEFAULT,3);
-INSERT INTO posteos VALUES (DEFAULT, "Lago","Perfecto lugar para ir a nadar un rato","https://harriscenter.org/wp-content/uploads/2017/11/canoeing_Silver_Lake_June2016_Thelen_500x600_acf_cropped-500x600.jpg",DEFAULT,DEFAULT,3);
-INSERT INTO posteos VALUES (DEFAULT, "Tour de France","1er puesto Tour de France!","https://www.healthcotrials.com/wp-content/uploads/2019/11/healthco-sobre-nosotros-home-500x600.jpg",DEFAULT,DEFAULT,5);
+INSERT INTO posteos VALUES (DEFAULT, "Cancun","Las hermosas playas del caribe!","foto - 1667482899911.jpeg",DEFAULT,DEFAULT,1);
+INSERT INTO posteos VALUES (DEFAULT, "Punta Del Este","Punta del Este!","foto - 1667483471932.jpeg",DEFAULT,DEFAULT,2);
+INSERT INTO posteos VALUES (DEFAULT, "Buenos Aires","Mi viaje a la hermosa ciudad de Buenos Aires","foto - 1667483526253.jpeg",DEFAULT,DEFAULT,2);
+INSERT INTO posteos VALUES (DEFAULT, "Paris","La Torre!","foto - 1667483606687.jpeg",DEFAULT,DEFAULT,4);
+INSERT INTO posteos VALUES (DEFAULT, "Amsterdam","Amsterdam es mi lugar preferido en el mundo","foto - 1667483675242.jpeg",DEFAULT,DEFAULT,4);
+INSERT INTO posteos VALUES (DEFAULT, "Noruega","Hermoso el dia aca en Oslo!","foto - 1667483918302.jpeg",DEFAULT,DEFAULT,1);
+INSERT INTO posteos VALUES (DEFAULT, "VidCon","Trabajando para mi presentacion en VidCon!","foto - 1667484019629.jpeg",DEFAULT,DEFAULT,3);
+INSERT INTO posteos VALUES (DEFAULT, "Safari","Imaginense encontrarte esto afuera de tu casa..., solo en un Safari","foto - 1667484041988.jpeg",DEFAULT,DEFAULT,3);
+INSERT INTO posteos VALUES (DEFAULT, "Lago","Perfecto lugar para ir a nadar un rato","foto - 1667484058149.jpeg",DEFAULT,DEFAULT,3);
+INSERT INTO posteos VALUES (DEFAULT, "Tour de France","1er puesto Tour de France!","foto - 1667484077617.jpeg",DEFAULT,DEFAULT,5);
 
 INSERT INTO comentarios VALUES (DEFAULT,2,1,"Increible imagen",DEFAULT ,DEFAULT);
 INSERT INTO comentarios VALUES (DEFAULT,2,2,"Wow!",DEFAULT ,DEFAULT);
