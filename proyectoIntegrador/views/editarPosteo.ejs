@@ -14,10 +14,10 @@
             <h1>Editar Posteo</h1>
             <form action="/posteo/update" method="post" class="loginForm">
                 <label  class = "campo" for="text">Titulo</label>
-                <input class = "campo" type="text" name="nombre" id="nombre" placeholder="Ej: Gatos" value="<%= posteo.nombre %>" >
+                <input class = "campo" type="text" name="nombre" id="nombre" placeholder="Ej: Gatos" value="<%= posteo.nombre %>" required >
         
                 <label  class = "campo" for="text">Descripcion</label>
-                <input class = "campo" type="text" name="descripcion" id="descripcion" placeholder="Descripcion" value="<%= posteo.descripcion %>">
+                <input class = "campo" type="text" name="descripcion" id="descripcion" placeholder="Descripcion" value="<%= posteo.descripcion %>" required>
 
                 <input class = "campo" hidden type="text" name="imagen_url" id="imagenUrl" placeholder="URL" value="<%= posteo.imagen_url %>">
 

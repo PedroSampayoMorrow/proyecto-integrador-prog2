@@ -12,7 +12,11 @@ let posteoController = {
         posteo.findByPk(idBuscado,{order:[["created_at","ASC"]],include:[{all:true,nested:true}]
         })
             .then(function (resultadoPosteo) {
-                return res.render('detallePost', {posteo: resultadoPosteo})
+                let comentariosOrdenados = resultadoPosteo.comentarios.reverse()
+                return res.render('detallePost', {posteo: resultadoPosteo,comentarios : comentariosOrdenados})
+            })
+            .catch(function (error) {
+                console.log(error);
             })
     },
     crear: function (req, res) {

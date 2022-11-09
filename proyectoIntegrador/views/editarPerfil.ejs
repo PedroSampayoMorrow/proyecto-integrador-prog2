@@ -16,28 +16,27 @@
             <form action="/usuario/miperfil/editar" method="POST" class="loginForm">
             
                 <label class = "campo" for="name">Tu nombre:</label>
-                <input class = "campo"type="text" name="nombre" id="name" placeholder="Nombre" value="<%= usuario.nombre %> ">
+                <input class = "campo"type="text" name="nombre" id="name" placeholder="Nombre" value="<%= usuario.nombre %> " required>
         
                 <label class = "campo" for="name">Tu apellido:</label>
-                <input class = "campo" type="text" name="apellido" id="apellido" placeholder="Apellido" value="<%= usuario.apellido %>" >
+                <input class = "campo" type="text" name="apellido" id="apellido" placeholder="Apellido" value="<%= usuario.apellido %>" required >
                 
                 <label class = "campo" for="name">Fecha de nacimiento</label>
-                <input class = "campo" type="date" name="fecha_nacimiento" id="fecha" placeholder="Fecha de nacimiento" value="<%= usuario.fecha_nacimiento %>" >
+                <input class = "campo" type="date" name="fecha_nacimiento" id="fecha" placeholder="Fecha de nacimiento" value="<%= usuario.fecha_nacimiento %>" required >
 
                 <label class = "campo" for="name">Tu nombre de usuario</label>
-                <input class = "campo" type="text" name="username" id="username" placeholder="username" value="<%= usuario.usuario %>" >
+                <input class = "campo" type="text" name="username" id="username" placeholder="username" value="<%= usuario.usuario %>" required >
         
                 <label class = "campo" for="email">Tu email:</label>
-                <input class = "campo" type="email" name="email" id="email" placeholder="example@email.com"  value="<%= usuario.email %>">
+                <input class = "campo" type="email" name="email" id="email" placeholder="example@email.com"  value="<%= usuario.email %>" required>
         
                 <label class = "campo" for="email">Nueva contraseña:</label>
-                <input class = "campo" type="password" name="contrasenia" id="password" placeholder="Contraseña"  value="">
+                <input class = "campo" type="password" name="contrasenia" id="password" placeholder="Contraseña"  value="" required>
 
                 <label class = "campo" for="email">DNI:</label>
                 <input class = "campo" type="text" name="numero_documento" id="password" placeholder="Contraseña"  value="<%= usuario.numero_documento %>">
 
-                <label class = "campo" for="email">Imagen de usuario</label>
-                <input class = "campo" hidden type="text" name="foto" id="imagenUrl" placeholder=""  value="<%= usuario.foto %>">
+                <input class = "campo"  type="text" name="foto" id="imagenUrlCambiada" placeholder=""  value="<%= usuario.foto %>">
                 <input class = "campo" hidden type="text" name="id" id="imagenUrl" placeholder=""  value="<%= usuario.id %>">
                 <button class = "campo" type="submit" class="loginButton">Modificar</button>
         

@@ -13,6 +13,8 @@ let storage = multer.diskStorage({
     }
 })
 
+
+
 let upload = multer({storage:storage})
 
 router.get('/detalle/id/:id', usuariosController.buscarPorId)
@@ -32,4 +34,7 @@ router.post('/miperfil/editar', usuariosController.editarPerfil)
 router.post('/seguir', usuariosController.seguir)
 
 router.get('/logout', usuariosController.logout)
+
+router.get('/myfeed', usuariosController.myFeed)
+
 module.exports = router;

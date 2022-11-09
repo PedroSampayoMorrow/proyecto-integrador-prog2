@@ -32,38 +32,38 @@
                         <h4>Comentarios</h4>
                         <section class="comments">
                             <form action="/posteo/detalle/comentarios" method = "POST" class="comment-form">
-                                <input type="text" class="input" name = "texto" placeholder="Agregar comentario">
+                                <input type="text" class="input" name = "texto" placeholder="Agregar comentario" required>
                                 <input type="hidden" value="<%= posteo.id %>" name="id_posteo">
                                 <button type="submit">Comentar</button>
                             </form>
 
                             <div class ="cuerpoComentarios">
 
-                                <% if (posteo.comentarios.length > 0) { %>
+                                <% if (comentarios.length > 0) { %>
                                     <% if (posteo.comentarios.length>8) { %>
                                         <% for( let i=0; i < 8; i++ ) { %>
                                             <article class="comment">
-                                                <img src="/images/Usuarios/<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
+                                                <img src="/images/Usuarios/<%= comentarios[i].usuario.foto %> " class="imgComentario" alt="">
                                                 <section class="content">
-                                                    <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
-                                                        <%= posteo.comentarios[i].usuario.usuario %>
+                                                    <a class="user" href="/usuario/detalle/id/<%= comentarios[i].usuario.id %> ">
+                                                        <%= comentarios[i].usuario.usuario %>
                                                     </a>
                                                     <span class="text">
-                                                        <%= posteo.comentarios[i].texto %>
+                                                        <%= comentarios[i].texto %>
                                                     </span>
                                                 </section>
                                             </article>
                                             <% } %> 
                                      <% } else { %>
-                                        <% for( let i=0; i < posteo.comentarios.length; i++ ) { %>
+                                        <% for( let i=0; i < comentarios.length; i++ ) { %>
                                             <article class="comment">
-                                                <img src="/images/Usuarios/<%= posteo.comentarios[i].usuario.foto %> " class="imgComentario" alt="">
+                                                <img src="/images/Usuarios/<%= comentarios[i].usuario.foto %> " class="imgComentario" alt="">
                                                 <section class="content">
-                                                    <a class="user" href="/usuario/detalle/id/<%= posteo.comentarios[i].usuario.id %> ">
-                                                        <%= posteo.comentarios[i].usuario.usuario %>
+                                                    <a class="user" href="/usuario/detalle/id/<%= comentarios[i].usuario.id %> ">
+                                                        <%= comentarios[i].usuario.usuario %>
                                                     </a>
                                                     <span class="text">
-                                                        <%= posteo.comentarios[i].texto %>
+                                                        <%= comentarios[i].texto %>
                                                     </span>
                                                 </section>
                                             </article>

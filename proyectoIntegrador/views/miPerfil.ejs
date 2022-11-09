@@ -25,10 +25,10 @@
                 </div>
             </section>
             <section class="posteosMiPerfil">
-                <% for( let i = 0; i < usuario.posteo.length; i++ ) { %>
+                <% for( let i = 0; i < posteosCronologicos.length; i++ ) { %>
                     <article class="post">
-                        <a href="/posteo/detalle/id/<%= usuario.posteo[i].id %> ">
-                            <img src="/images/Posteos/<%= usuario.posteo[i].imagen_url %>" alt="">
+                        <a href="/posteo/detalle/id/<%= posteosCronologicos[i].id %> ">
+                            <img src="/images/Posteos/<%= posteosCronologicos[i].imagen_url %>" alt="">
                         </a>
                     </article>
                 <% } %>

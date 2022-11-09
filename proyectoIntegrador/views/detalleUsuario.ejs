@@ -11,28 +11,33 @@
     <% } %>
     <main>
         <div class="user-detail container">
+
+           
+            
             <section class="top main-content">
                 <img class="profile" src="/images/Usuarios/<%= usuario.foto %>" alt="">
                 <div class="info-usuario">
                     <p><%= usuario.usuario %> </p> 
-                    <% if (locals.user != undefined) { %>
+                    <% if (locals.user == undefined|| locals.user.id != usuario.id){ %>
                         <form action="/usuario/seguir" method="post">
-                            <input type="text" value="<%= usuario.id %> " hidden  name="idPerfil">
+                            <input type="text" value="<%= usuario.id %>" hidden  name="idPerfil">
                             <button class="follow" type="sublit">seguir </button>
                         </form>
                     <% } %>
+
+                          
                     <ul class="meta">
                         <li><%= usuario.posteo.length %> post</li>
                         <li><%= followers.length %> seguidores</li>
                         <li><%= usuario.following.length %> seguidos</li>
                     </ul>
                 </div>
-            </section>
+            </section> 
             <section class="posteosMiPerfil">
-                <% for( let i = 0; i < usuario.posteo.length; i++ ) { %>
+                <% for( let i = 0; i < posteosCronologicos.length; i++ ) { %>
                     <article class="post">
-                        <a href="/posteo/detalle/id/<%= usuario.posteo[i].id %> ">
-                            <img src="/images/Posteos/<%= usuario.posteo[i].imagen_url %>" alt="">
+                        <a href="/posteo/detalle/id/<%= posteosCronologicos[i].id %> ">
+                            <img src="/images/Posteos/<%= posteosCronologicos[i].imagen_url %>" alt="">
                         </a>
                     </article>
                 <% } %>

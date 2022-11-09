@@ -97,7 +97,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 100px 0;
-    min-height: 750px;
+    min-height: 880px;
 }
 
 .main-content {
@@ -378,7 +378,6 @@ main {
 }
 .tamanoImg {
     width: 500px;
-    height: 600px;
 }
 .navbar-left{
     width: 27vw;
@@ -404,4 +403,8 @@ width: 30vw;
 .margenes{
     display: flex;
     width: 500px;
+}
+.error{
+    color: red;
+    font-size: 10px;
 }
