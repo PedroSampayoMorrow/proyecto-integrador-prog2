@@ -71,6 +71,12 @@ header {
 .search i {
     color: #888;
 }
+#orderAscBox {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 20px;
+}
 .menu{
     display: flex;
     flex-direction: row;
