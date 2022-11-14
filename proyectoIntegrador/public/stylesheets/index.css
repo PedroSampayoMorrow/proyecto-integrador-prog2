@@ -57,19 +57,16 @@ header {
 }
 .search {
     display: flex;
+    flex-direction: row;
+    width: 750px;
+}
+.search input {
+    display: flex;
     background-color: #EBEDF0;
     padding: 10px;
     border-radius: 10px;
     width: 350px;
     flex-direction: row;
-}
-.search input {
-    border: none;
-    background-color: transparent;
-    height: 26px;
-    color: #888;
-    width: 90%;
-    outline-width: 0;
 }
 .search i {
     color: #888;
