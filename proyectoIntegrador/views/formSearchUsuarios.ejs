@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+        <% if (locals.user !=undefined) { %>
+            <%- include('./partials/headerLog') %>
+                %> <% } else { %>
+                    <%- include('./partials/header') %>
+                        <% } %>
+        <main>
+            <h1 class="tituloFormSearchUser">Busca un usuario:</h1>
+            <form action="/search/user" class="search searchUser" method="get">
+                <i class="fa-solid fa-magnifying-glass lupaSearchUser"></i>
+                <input type="search" class="search-input" placeholder="Buscar usuario..." name="buscadoUsuario" required>
+            </form>
+        </main>
+     <%- include('./partials/footer') %> 
+ </body>

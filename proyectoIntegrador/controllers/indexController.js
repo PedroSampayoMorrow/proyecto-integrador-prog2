@@ -2,7 +2,7 @@
 
 let db = require('../database/models');
 const { posteos } = require('../db/data');
-const { where } = require('sequelize');
+const { where, EmptyResultError } = require('sequelize');
 let posteo = db.Posteo;
 let comentario = db.Comentario;
 let usuario = db.Usuario;
@@ -21,6 +21,22 @@ let indexController = {
             })
 
 
+    },
+    searchUsuarios: function (req, res) {
+        return res.render('formSearchUsuarios')
+    },
+    searchUser:function (req, res) {
+        buscado = req.query.buscadoUsuario;
+        let criterios = {
+            include: [{ all: true, nested: true }],
+            where: [{ nombre: { [op.like]: "%" + buscado + "%" } }],
+            limit: 10,
+            order: [['created_at', 'DESC']]
+        }
+        usuario.findAll(criterios)
+            .then(function (resultado) {
+                return res.render('resBusquedaUsuarios', { datos: resultado, buscado: buscado })
+            })
     },
     search: function (req, res) {
         buscado = req.query.buscado;

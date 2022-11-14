@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+    <body>
+        <% if (locals.user !=undefined) { %>
+            <%- include('./partials/headerLog') %>
+                %> <% } else { %>
+                    <%- include('./partials/header') %>
+                        <% } %>
+        <main>
+            <section class="center main-content">
+                <h1>Resultados de búsqueda: <%= buscado %> </h1>
+            </section>
+            
+            <% if (datos.length >= 1 ) { %>
+                <% for( let i = 0; i < datos.length; i++ ) { %>
+                    
+                    <article class="usuario">
+                        <div class="info-usuario ">
+                            <img class = "imgComentario" src="/images/Usuarios/<%= datos[i].foto %>" alt="">
+                            <h4>
+                                <a href="/usuario/detalle/id/<%= datos[i].id %> "> <%= datos[i].usuario %> </a>
+                            </h4>
+                        </div>
+                    </article>
+                <% } %>
+             <% } else { %>
+             <h2>No se econtraron resultados para tu busqueda</h2>
+                <% } %>
+        </main>
+        <%- include('./partials/footer') %> 
+    </body>

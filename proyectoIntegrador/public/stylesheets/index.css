@@ -60,6 +60,16 @@ header {
     flex-direction: row;
     width: 750px;
 }
+.searchUser {
+    display: flex;
+    justify-content: center;
+}
+.lupaSearchUser {
+    display: flex;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    margin-right: 10px;
+}
 .search input {
     display: flex;
     background-color: #EBEDF0;
@@ -68,7 +78,7 @@ header {
     width: 350px;
     flex-direction: row;
 }
-.search i {
+.lupaSearch {
     display: flex;
     color: #888;
     align-items: center;

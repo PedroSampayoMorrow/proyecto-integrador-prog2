@@ -5,14 +5,15 @@
         </div>
         <div class="navbar-center">
             <form action="/search" class="search" method="get">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" class="search-input" placeholder="Buscar..." name="buscado" required>
+                <i class="fa-solid fa-magnifying-glass lupaSearch"></i>
+                <input type="search" class="search-input" placeholder="Buscar posteo..." name="buscado" required>
                 <input type="checkbox" name="order" id="orderAscBox">
                 <label for="orderAscBox" id="orderAscBoxLabel">Orden Ascendiente</label>
             </form>
         </div>
         <div class="navbar-right">
             <ul class="menu">
+                <li><a href="/search/usuarios">Buscador Usuarios</a></li>
                 <li><a href="/usuario/registrar">Registro</a></li>
                 <li><a href="/usuario/login">Login</a></li>
                 <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
