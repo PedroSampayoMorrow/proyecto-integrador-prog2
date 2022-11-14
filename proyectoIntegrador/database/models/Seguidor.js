@@ -6,21 +6,21 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type : dataTypes.INTEGER
-        },id_seguidor: {
-            type : dataTypes.INTEGER
-        },id_seguido: {
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
+        }, id_seguidor: {
+            type: dataTypes.INTEGER
+        }, id_seguido: {
+            type: dataTypes.INTEGER
         }
-        
+
     }
     let config = {
-        tableName : "seguidos",
+        tableName: "seguidos",
         timestamps: false,
-        underscored :true
+        underscored: true
     }
-    let Seguidor = sequelize.define (alias,cols,config);
+    let Seguidor = sequelize.define(alias, cols, config);
 
-    
+
     return Seguidor;
 }

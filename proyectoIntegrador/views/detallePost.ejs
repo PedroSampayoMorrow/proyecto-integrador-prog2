@@ -81,18 +81,19 @@
                     </section>
                     
                 </div>
-                <% if (locals.user != undefined && locals.user.id ==posteo.usuario.id) { %>
+                <% if (locals.user != undefined && locals.user.id == posteo.id_usuario ) { %>
                     <div class="post-detail container margenes">
-                        <form action="/posteo/detalle/update/id/<%= posteo.id %>" method = "post" class="comment-form">
+                        <form action="/posteo/update" method = "get" class="comment-form">
+                            <input type="text" hidden name="id_posteo" value="<%= posteo.id %>" >
                             <button type="submit" class="btnPosteo">Editar Posteo</button>
                         </form>
                             <form action="/" method = "get" class="comment-form">
                                 <button type="submit" class="btnPosteo">Borrar Posteo</button>
                             </form>
-
-                    </div>
-                    
+    
+                    </div>    
                 <% } %>
+                
                 
             </main>
 

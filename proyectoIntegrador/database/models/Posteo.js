@@ -6,7 +6,7 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         nombre: {
             allowNull: false,
@@ -27,37 +27,27 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.DATE
         },
         id_usuario: {
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
         }
     }
     let config = {
-        tableName : "posteos",
+        tableName: "posteos",
         timestamps: false,
-        underscored :true
+        underscored: true
     }
-    let Posteo = sequelize.define (alias,cols,config);
+    let Posteo = sequelize.define(alias, cols, config);
     Posteo.associate = function (models) {
-        Posteo.belongsTo(models.Usuario,{
-            as:"usuario",
-            foreignKey:"id_usuario"
+        Posteo.belongsTo(models.Usuario, {
+            as: "usuario",
+            foreignKey: "id_usuario"
         })
 
-        Posteo.hasMany(models.Comentario,{
-            as:"comentarios",
-            foreignKey:"id_posteo"
+        Posteo.hasMany(models.Comentario, {
+            as: "comentarios",
+            foreignKey: "id_posteo"
         })
     }
-    /*Posteo.associate = function (models) {
-        Posteo.belongsTo(models.Usuario,{
-            as:"usuario",
-            foreignKey:"id_posteo"
-        })
 
-        Posteo.hasMany(models.Comentario,{
-            as:"comentarios",
-            foreignKey:"id_posteo"
-        })
-    }*/
 
     return Posteo;
 }
