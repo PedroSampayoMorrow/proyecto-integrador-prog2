@@ -56,10 +56,12 @@ header {
     color: rgb(20, 20, 20);
 }
 .search {
+    display: flex;
     background-color: #EBEDF0;
     padding: 10px;
     border-radius: 10px;
     width: 350px;
+    flex-direction: row;
 }
 .search input {
     border: none;
