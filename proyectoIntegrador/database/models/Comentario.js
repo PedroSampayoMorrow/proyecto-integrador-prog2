@@ -6,13 +6,13 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         id_usuario: {
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         id_posteo: {
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         texto: {
             allowNull: false,
@@ -26,33 +26,22 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
     let config = {
-        tableName : "comentarios",
+        tableName: "comentarios",
         timestamps: false,
-        underscored :true
+        underscored: true
     }
-    let Comentario = sequelize.define (alias,cols,config);
-    
+    let Comentario = sequelize.define(alias, cols, config);
+
     Comentario.associate = function (models) {
-        Comentario.belongsTo(models.Usuario,{
-            as:"usuario",
-            foreignKey:"id_usuario"
+        Comentario.belongsTo(models.Usuario, {
+            as: "usuario",
+            foreignKey: "id_usuario"
         })
 
-        Comentario.belongsTo(models.Posteo,{
-            as:"posteo",
-            foreignKey:"id_posteo"
-        })}
-    /*Comentario.associate = function (models) {
-        Comentario.belongsTo(models.Usuario,{
-            as:"usuario",
-            foreignKey:"id_usuario"
+        Comentario.belongsTo(models.Posteo, {
+            as: "posteo",
+            foreignKey: "id_posteo"
         })
-
-        Comentario.belongsTo(models.Posteo,{
-            as:"posteo",
-            foreignKey:"id_posteo"
-        })
-    }*/
-
+    }
     return Comentario;
 }

@@ -6,7 +6,7 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type : dataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         nombre: {
             allowNull: false,
@@ -34,7 +34,7 @@ module.exports = function (sequelize, dataTypes) {
             allowNull: false
         },
         numero_documento: {
-            type : dataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         foto: {
@@ -49,30 +49,30 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
     let config = {
-        tableName : "usuarios",
+        tableName: "usuarios",
         timestamps: false,
-        underscored :true
+        underscored: true
     }
-    let Usuario = sequelize.define (alias,cols,config);
+    let Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = function (models) {
-        Usuario.hasMany(models.Posteo,{
-            as:"posteo",
-            foreignKey:"id_usuario"
+        Usuario.hasMany(models.Posteo, {
+            as: "posteo",
+            foreignKey: "id_usuario"
         })
 
-        Usuario.hasMany(models.Comentario,{
-            as:"comentarios",
-            foreignKey:"id_usuario"
+        Usuario.hasMany(models.Comentario, {
+            as: "comentarios",
+            foreignKey: "id_usuario"
         })
 
-       Usuario.belongsToMany(models.Usuario,{
+        Usuario.belongsToMany(models.Usuario, {
             as: "following",
-            through : "seguidos",
+            through: "seguidos",
             foreignKey: "id_seguidor",
             otherKey: "id_seguido",
             timestamps: false
-        })  
+        })
     }
     return Usuario;
 }

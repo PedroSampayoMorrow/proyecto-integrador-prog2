@@ -11,7 +11,12 @@
         <% } %>
             <main>
                 <section class="centerMain-content">
+                    
                     <h1>Login</h1>
+                    <% if (locals.errores) { %>
+                        <p class="error"><%= errores.message2 %> </p>
+                        <p class="error"><%= errores.message3 %> </p>
+                      <% } %>
                     <form action="/usuario/login" method="POST" class="loginForm">
                         <label class="campo" for="email">Tu email:</label>
                         <input class="campo" type="email" name="email" id="email" placeholder="example@email.com">

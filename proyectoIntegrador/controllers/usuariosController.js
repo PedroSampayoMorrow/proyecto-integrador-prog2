@@ -5,6 +5,7 @@ let posteo = db.Posteo;
 let bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const { where } = require('sequelize');
+const session = require('express-session');
 
 let usuariosController = {
     buscarPorId: function (req, res) {
@@ -29,7 +30,7 @@ let usuariosController = {
         } else {
             return res.render('registracion')
         }
-        
+
     },
     login: function (req, res) {
         if (req.session.user != null) {
@@ -60,15 +61,15 @@ let usuariosController = {
     editarMiPerfil: function (req, res) {
         if (req.session.user != null) {
             db.Usuario.findByPk(req.session.user.id, { include: [{ all: true, nested: true }] })
-            .then(function (resultados) {
-                return res.render('editarPerfil', { usuario: resultados.dataValues })
-            }).catch(function (error) {
-                console.log(error);
-            })
+                .then(function (resultados) {
+                    return res.render('editarPerfil', { usuario: resultados.dataValues })
+                }).catch(function (error) {
+                    console.log(error);
+                })
         } else {
             return res.redirect('/usuario/login')
         }
-        
+
     },
     editarPerfil: function (req, res) {
         //    return res.send(req.body)
@@ -130,6 +131,7 @@ let usuariosController = {
 
     },
     loginV: function (req, res) {
+        let errores = {}
         db.Usuario.findOne({ where: { email: req.body.email } })
             .then(function (resultados) {
                 if (resultados != null) {
@@ -141,10 +143,14 @@ let usuariosController = {
                         }
                         return res.redirect('/')
                     } else {
-                        return res.send('Contraseña incorrecta! Intenta denuevo por favor')
+                        errores.message2 ='Contraseña incorrecta!'
+                        res.locals.errores = errores
+                        return res.render('login')
                     }
                 } else {
-                    return res.send('el e-mail que pusiste no existe!')
+                    errores.message3 = 'El e-mail que pusiste no existe!'
+                    res.locals.errores = errores
+                    return res.render('login')
                 }
             }).catch(function (error) {
                 return res.send(error)
@@ -154,24 +160,24 @@ let usuariosController = {
         let followersmsg = {}
         if (req.session.user != null) {
             db.Seguidor.findOne({ where: [{ id_seguidor: req.session.user.id }, { id_seguido: req.body.idPerfil }] })
-            .then(function (relacionEncontrada) {
-                if (relacionEncontrada == undefined) {
-                    db.Seguidor.create({
-                        id_seguidor: req.session.user.id,
-                        id_seguido: req.body.idPerfil
-                    }).then(function (info) {
-                        return res.redirect('/usuario/detalle/id/'+ req.body.idPerfil)
-                    }).catch ( function (error) {
-                        console.log(error);
-                    })
-                } else {
-                    return res.redirect('/usuario/detalle/id/'+ req.body.idPerfil)
-                }
-            })
+                .then(function (relacionEncontrada) {
+                    if (relacionEncontrada == undefined) {
+                        db.Seguidor.create({
+                            id_seguidor: req.session.user.id,
+                            id_seguido: req.body.idPerfil
+                        }).then(function (info) {
+                            return res.redirect('/usuario/detalle/id/' + req.body.idPerfil)
+                        }).catch(function (error) {
+                            console.log(error);
+                        })
+                    } else {
+                        return res.redirect('/usuario/detalle/id/' + req.body.idPerfil)
+                    }
+                })
         } else {
             return res.redirect('/usuario/login')
         }
-        
+
 
     },
     logout: function (req, res) {
@@ -180,27 +186,32 @@ let usuariosController = {
         // res.locals.user = null;
         return res.redirect('/');
     },
-    myFeed: function (req,res) {
-        db.Seguidor.findAll({ where: [{ id_seguidor: req.session.user.id }],include:[{all:true,nested:true}] })
-        .then(function (resultado) {
-            let arrayIdSeguidos = []
-            for (let i = 0; i < resultado.length; i++) {
-                arrayIdSeguidos.push(resultado[i].id_seguido)
-            }
-            let criterios = {
-                include:[{all:true,nested:true}],
-                limit:20,
-                order : [['created_at','DESC']],
-                where: [{ id_usuario: arrayIdSeguidos}]     
-            }
-            posteo.findAll(criterios)
-            .then(function (resultado) {
-                return  res.render('index', {datos : resultado});
-            })
-        }).catch(function (error) {
-            console.log(error);
-        })
+    myFeed: function (req, res) {
+        if (req.session.user != null) {
+            db.Seguidor.findAll({ where: [{ id_seguidor: req.session.user.id }], include: [{ all: true, nested: true }] })
+                .then(function (resultado) {
+                    let arrayIdSeguidos = []
+                    for (let i = 0; i < resultado.length; i++) {
+                        arrayIdSeguidos.push(resultado[i].id_seguido)
+                    }
+                    let criterios = {
+                        include: [{ all: true, nested: true }],
+                        limit: 20,
+                        order: [['created_at', 'DESC']],
+                        where: [{ id_usuario: arrayIdSeguidos }]
+                    }
+                    posteo.findAll(criterios)
+                        .then(function (resultado) {
+                            return res.render('index', { datos: resultado });
+                        })
+                }).catch(function (error) {
+                    console.log(error);
+                })
+        } else {
+            res.redirect('/usuario/login')
+        }
     }
+
 }
 
 module.exports = usuariosController;
