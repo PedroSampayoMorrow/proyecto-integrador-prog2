@@ -24,16 +24,38 @@ let indexController = {
     },
     search: function (req, res) {
         buscado = req.query.buscado;
+        console.log(req.query.order);
         let criterios = {
             include: [{ all: true, nested: true }],
             where: [{ nombre: { [op.like]: "%" + buscado + "%" } }],
             limit: 10,
             order: [['created_at', 'DESC']]
         }
-        posteo.findAll(criterios)
+        let criterios2 = {
+            include: [{ all: true, nested: true }],
+            where: [{ nombre: { [op.like]: "%" + buscado + "%" } }],
+            limit: 10,
+            order: [['created_at', 'ASC']]
+        }
+        if (req.query.order != null) {
+            posteo.findAll(criterios2)
             .then(function (resultado) {
                 return res.render('resultadoBusqueda', { datos: resultado, buscado: buscado })
             })
+            .catch(function (error) {
+                return res.send(error)
+            })
+            
+        } else {
+            posteo.findAll(criterios)
+            .then(function (resultado) {
+                return res.render('resultadoBusqueda', { datos: resultado, buscado: buscado })
+            
+            })
+            .catch(function (error) {
+                return res.send(error)
+            })
+        }
 
 
     }
