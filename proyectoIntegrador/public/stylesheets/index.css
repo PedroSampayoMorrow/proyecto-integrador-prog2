@@ -69,7 +69,10 @@ header {
     flex-direction: row;
 }
 .search i {
+    display: flex;
     color: #888;
+    align-items: center;
+    margin-right: 10px;
 }
 #orderAscBox {
     display: flex;
