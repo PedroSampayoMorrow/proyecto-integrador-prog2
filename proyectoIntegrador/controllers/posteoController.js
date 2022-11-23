@@ -87,6 +87,30 @@ let posteoController = {
                 id_usuario: req.body.id_usuario
             }, { where: { id: req.body.id } })
             return res.redirect('/posteo/detalle/id/' + req.body.id)
+    },
+    likes: function (req, res) {
+        let likesmsg = {}
+        if (req.session.user != null) {
+            db.Likes.findOne({ where: [{ id_usuario: req.session.user.id }, { id_posteo: req.body.idPosteo}] })
+                .then(function (relacionEncontrada) {
+                    if (relacionEncontrada == undefined) {
+                        db.Likes.create({
+                            id_usuario: req.session.user.id,
+                            id_posteo: req.body.idPosteo
+                        }).then(function (info) {
+                            return res.redirect('/posteo/detalle/id/' + req.body.idPosteo)
+                        }).catch(function (error) {
+                            console.log(error);
+                        })
+                    } else {
+                        return res.redirect('/posteo/detalle/id/' + req.body.idPosteo)
+                    }
+                })
+        } else {
+            return res.redirect('/usuario/login')
+        }
+
+
     }
 }
 

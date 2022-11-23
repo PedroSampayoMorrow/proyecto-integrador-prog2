@@ -21,6 +21,11 @@
                         </div>
                         <img class="photo" src="/images/Posteos/<%= posteo.imagen_url %> " alt="">
                         <div class="post-comentarios">
+                            <form action="/posteo/detalle/like" method="post">
+                                <input type="text" value="<%= posteo.id %>" hidden  name="idPosteo">
+                                <button class="like" type="submit">Like</button>
+                            </form>
+                            <p><%= posteo.likes.length %></p>
                             <h4 class="post-comentarios">Descripcion</h4>
                             <p class="titulo">
                                 <%= posteo.descripcion %>

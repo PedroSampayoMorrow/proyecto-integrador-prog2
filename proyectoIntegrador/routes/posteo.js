@@ -8,6 +8,7 @@ let path = require('path');
 
 router.get('/detalle/id/:id', posteoController.buscarPorId)
 router.post('/detalle/comentarios', posteoController.comentarios)
+router.post('/detalle/like', posteoController.likes)
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {

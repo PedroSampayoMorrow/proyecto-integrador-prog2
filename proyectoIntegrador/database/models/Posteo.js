@@ -46,6 +46,11 @@ module.exports = function (sequelize, dataTypes) {
             as: "comentarios",
             foreignKey: "id_posteo"
         })
+
+        Posteo.hasMany(models.Likes, {
+            as: "likes",
+            foreignKey: "id_posteo"
+        })
     }
 
 

@@ -20,6 +20,12 @@ module.exports = function (sequelize, dataTypes) {
         underscored: true
     }
     let Likes = sequelize.define(alias, cols, config);
+    Likes.associate = function (models) {
+        Likes.belongsTo(models.Posteo, {
+            as: "posteo",
+            foreignKey: "id_posteo"
+        })
+    }
 
 
     return Likes;
