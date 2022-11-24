@@ -11,6 +11,9 @@
     <% } %>
     <main>
         <section class="center main-content">
+            <% if (datos.length == 0) {%>
+                <h2>Comienza a seguir gente!</h2>
+                <% } else { %>  
             <% for( let i = 0; i < datos.length; i++ ) { %>
                 <article class="post">
                     <div class="info-usuario ">
@@ -56,7 +59,7 @@
                     </div>
                 </article>
             <% } %>
-            
+            <% } %> 
         </section>    
     </main>
 
